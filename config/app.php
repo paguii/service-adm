@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'iService Adm'),
 
     /*
     |--------------------------------------------------------------------------
@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        iService\Providers\AppServiceProvider::class,
+        iService\Providers\AuthServiceProvider::class,
+        // iService\Providers\BroadcastServiceProvider::class,
+        iService\Providers\EventServiceProvider::class,
+        iService\Providers\RouteServiceProvider::class,
 
     ],
 
