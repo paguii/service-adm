@@ -15,6 +15,10 @@ class CreateSLAsTable extends Migration
     {
         Schema::create('sla', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('descricao');
+            $table->integer('tempo_resposta');
+            $table->integer('tempo_solucao');
             $table->timestamps();
         });
     }

@@ -3,16 +3,16 @@
 namespace iService\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\AreaAtendimento;
+use iService\NivelAcesso;
 
 class Teste extends Controller
 {
-    //
+    //Classe para testes rapidos :D 
 
     public function teste(){
-    	$AreaAtendimento = new AreaAtendimento;
-    	$AreaAtendimento->inserir();
 
-    	return "inseriu no banco";
+    	$teste = new NivelAcesso;
+    	return print $teste::find(1)->getOperacoes;
+
     }
 }

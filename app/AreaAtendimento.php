@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class AreaAtendimento extends Model
 {
-    //
+    //Definicao da Area de Atendimento;
 
     protected $table = 'areas_atendimento';
 
-    public function inserir(){
+    public function inserir($nome, $descricao, $status){
     	$areaAtendimento = new AreaAtendimento;
-    	$areaAtendimento->nome = "TESTE";
-    	$areaAtendimento->descricao = "TESTE2";
+    	$areaAtendimento->nome = $nome;
+    	$areaAtendimento->descricao = $descricao;
+    	$areaAtendimento->status = $status;
 
     	$areaAtendimento->save();
     }

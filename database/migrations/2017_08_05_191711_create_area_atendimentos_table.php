@@ -15,6 +15,7 @@ class CreateAreaAtendimentosTable extends Migration
     {
         Schema::create('areas_atendimento', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('status');
             $table->string('nome');
             $table->string('descricao');
             $table->timestamps();
@@ -28,6 +29,6 @@ class CreateAreaAtendimentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area_atendimentos');
+        Schema::dropIfExists('areas_atendimento');
     }
 }

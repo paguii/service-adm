@@ -15,6 +15,7 @@ class CreateNivelAcessosTable extends Migration
     {
         Schema::create('niveis_acesso', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('descricao');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateNivelAcessosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nivel_acessos');
+        Schema::dropIfExists('niveis_acesso');
     }
 }

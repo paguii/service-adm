@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>iService Adm - @yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -70,8 +70,9 @@
                 </div>
             </div>
         </nav>
-
+        @yield('header')
         @yield('content')
+        @yield('footer')
     </div>
 
     <!-- Scripts -->
