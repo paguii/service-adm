@@ -22,3 +22,14 @@ $factory->define(iService\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(iService\Solicitante::class, function (Faker\Generator $faker){
+	return [
+		'cpf' => $faker->unique()->numberBetween(10000000000, 99999999999),
+		'nome' => $faker->name,
+		'email' => $faker->unique()->safeEmail,
+		'endereco' => $faker->address,
+		'status' => 1,
+		'observacao' => $faker->text
+	];
+});

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTipoProblemasTable extends Migration
+class CreateChamadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,18 @@ class CreateTipoProblemasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_problemas', function (Blueprint $table) {
+        Schema::create('chamados', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->integer('solicitante_id')->unsigned();
+            $table->foreign('solicitante_id')->references('id')->on('solicitantes');
 
             $table->integer('classe_problema_id')->unsigned();
             $table->foreign('classe_problema_id')->references('id')->on('classes_problemas');
 
-            $table->string('nome');
-            $table->text('descricao');
-            
+            $table->integer('tipo_problema_id')->unsigned();
+            $table->foreign('tipo_problema_id')->references('id')->on('classes_problemas');
+
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ class CreateTipoProblemasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_problemas');
+        Schema::dropIfExists('chamados');
     }
 }

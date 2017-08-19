@@ -15,15 +15,12 @@ class CreateSolicitantesTable extends Migration
     {
         Schema::create('solicitantes', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('cpf')->unique();
             $table->string('nome');
             $table->string('email')->unique();
             $table->string('endereco');
-            $table->bigInteger('telefone');
-            $table->bigInteger('celular');
             $table->boolean('status');
             $table->string('observacao', 300);
-
-
             $table->timestamps();
         });
     }

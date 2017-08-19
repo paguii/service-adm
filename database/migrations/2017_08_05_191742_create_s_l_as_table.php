@@ -17,8 +17,8 @@ class CreateSLAsTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('descricao');
-            $table->integer('tempo_resposta');
-            $table->integer('tempo_solucao');
+            $table->integer('horas_uteis_resposta');
+            $table->integer('horas_uteis_solucao');
             $table->timestamps();
         });
     }

@@ -13,8 +13,10 @@ class CreateClasseProblemasTable extends Migration
      */
     public function up()
     {
-        Schema::create('classe_problemas', function (Blueprint $table) {
+        Schema::create('classes_problemas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
+            $table->string('descricao');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateClasseProblemasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classe_problemas');
+        Schema::dropIfExists('classes_problemas');
     }
 }
