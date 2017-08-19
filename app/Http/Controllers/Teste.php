@@ -3,7 +3,7 @@
 namespace iService\Http\Controllers;
 
 use Illuminate\Http\Request;
-use iService\NivelAcesso;
+use iService\Solicitante;
 
 class Teste extends Controller
 {
@@ -11,8 +11,8 @@ class Teste extends Controller
 
     public function teste(){
 
-    	$teste = new NivelAcesso;
-    	return print $teste::find(1)->getOperacoes;
+    	$teste = new Solicitante;
+    	return print $teste::find(1)->getTelefones;
 
     }
 }
