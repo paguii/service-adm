@@ -1,0 +1,26 @@
+{
+  "name": "iservice adm",
+  "description": "projeto de conclusao de curso",
+  "main": "",
+  "authors": [
+    "Guilherme Pagliarini"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ITIL",
+    "COBIT"
+  ],
+  "homepage": "https://github.com/paguii/service-adm",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_resources",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^7.0.0"
+  }
+}
