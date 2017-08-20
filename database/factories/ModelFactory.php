@@ -11,14 +11,30 @@
 |
 */
 
+$factory->define(iService\NivelAcesso::class, function (Faker\Generator $faker) {
+    return [
+        'descricao' => $faker->company,
+    ];
+});
+
+$factory->define(iService\AreaAtendimento::class, function (Faker\Generator $faker) {
+    return [
+		'situacao' => 1,
+		'nome' => $faker->name,
+        'descricao' => $faker->text,
+    ];
+});
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(iService\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+		'name' => $faker->name,
+		'nivelacesso_id' => $faker->numberBetween(1,5),
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+		'password' => $password ?: $password = bcrypt('secret'),
+		'situacao' => 1,
         'remember_token' => str_random(10),
     ];
 });
@@ -29,7 +45,7 @@ $factory->define(iService\Solicitante::class, function (Faker\Generator $faker){
 		'nome' => $faker->name,
 		'email' => $faker->unique()->safeEmail,
 		'endereco' => $faker->address,
-		'status' => 1,
+		'situacao' => 1,
 		'observacao' => $faker->text
 	];
 });

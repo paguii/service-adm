@@ -17,5 +17,10 @@ class AreaAtendimento extends Model
     	$areaAtendimento->status = $status;
 
     	$areaAtendimento->save();
-    }
+	}
+	
+	public function getUsers()
+	{
+		return $this->belongsToMany('iService\User', 'users_areas_atendimento');
+	}
 }

@@ -15,7 +15,7 @@ class CreateAreaAtendimentosTable extends Migration
     {
         Schema::create('areas_atendimento', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('status');
+            $table->boolean('situacao');
             $table->string('nome');
             $table->string('descricao');
             $table->timestamps();

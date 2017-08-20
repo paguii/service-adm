@@ -27,4 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getAreasAtendimento()
+    {
+       return $this->belongsToMany('iService\AreaAtendimento', 'users_areas_atendimento');
+    }
+    
 }

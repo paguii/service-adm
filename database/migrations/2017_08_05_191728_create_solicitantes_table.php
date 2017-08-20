@@ -19,7 +19,7 @@ class CreateSolicitantesTable extends Migration
             $table->string('nome');
             $table->string('email')->unique();
             $table->string('endereco');
-            $table->boolean('status');
+            $table->boolean('situacao');
             $table->string('observacao', 300);
             $table->timestamps();
         });
