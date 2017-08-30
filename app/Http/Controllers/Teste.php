@@ -7,6 +7,7 @@ use iService\Solicitante;
 
 use iService\User;
 use iService\AreaAtendimento;
+use Illuminate\Support\Facades\Auth;
 
 class Teste extends Controller
 {
@@ -14,10 +15,9 @@ class Teste extends Controller
 
     public function teste()
     {
-        $user = User::find(2);
-        $area_atendimento = AreaAtendimento::find(1);
-
-        return $user->getAreasAtendimento()->save($area_atendimento);
+        $user = User::find(Auth::id());
+        //$area_atendimento = AreaAtendimento::find(rand(1,5));
         
+        return $user->getAreasAtendimento()->attach(rand(1,5));
     }
 }

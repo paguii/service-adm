@@ -12,9 +12,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/iService.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_resources/normalize-css/normalize.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="@yield('bodyClass')">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

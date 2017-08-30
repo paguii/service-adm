@@ -12,11 +12,14 @@
 */
 
 Route::get('/', function(){
-    return redirect('/login');
+    return view('iService');
+    //return redirect('/login');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/atendimento/{id}', 'AtendimentoController@index');
+
 Route::get('/teste', 'Teste@teste');
 

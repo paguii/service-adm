@@ -1,0 +1,65 @@
+body{
+    font-size: 16px;
+}
+
+.banner{
+    background-image: url("../images/background.png");
+    background-position: center;
+    background-repeat: repeat;
+
+    margin-top: -25px;
+}
+
+.banner img{
+    display: inline-block;
+
+    width: 100%;
+    max-width: 1200px;
+
+    height: auto;
+}
+
+.artigo {
+    position: relative;
+
+    display: flex;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px; 
+}
+
+.artigo .escrito{
+   
+}
+
+.artigo .titulo{
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+@media (max-width: 991px){
+    .artigo .imagem{
+        display: none;
+    }
+}
+
+.artigo .texto{
+    padding-top: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 10px;
+}
+
+.areaAtendimento{
+    margin-top: 5px;
+    padding: 15px;
+
+    background-color: #5bc0de;
+
+    border-radius: 6px;
+
+    font-size: 22px;
+    color: white;
+}

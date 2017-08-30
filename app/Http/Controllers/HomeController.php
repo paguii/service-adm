@@ -3,6 +3,9 @@
 namespace iService\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use iService\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = new User;
+        $user = $user->find(Auth::id());
+
+        $areasAtendimento = array();
+        $i = 0;
+
+        foreach($user->getAreasAtendimento as $areaAtendimento){
+            $areasAtendimento[$i] = $areaAtendimento->nome;
+            $i++;
+        }
+
+        return view('home', ['areasAtendimento' => $areasAtendimento]);
     }
 }
