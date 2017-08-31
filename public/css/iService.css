@@ -3,9 +3,10 @@ body{
 }
 
 .banner{
-    background-image: url("../images/background.png");
-    background-position: center;
+    background-image: url("../images/background-banner.jpg");
+    background-position: bottom;
     background-repeat: repeat;
+    background-size: cover;
 
     margin-top: -25px;
 }
@@ -15,8 +16,8 @@ body{
 
     width: 100%;
     max-width: 1200px;
-
     height: auto;
+
 }
 
 .artigo {
@@ -26,12 +27,8 @@ body{
 
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px; 
-}
-
-.artigo .escrito{
-   
+    padding-left: 10px;
+    padding-right: 10px; 
 }
 
 .artigo .titulo{
@@ -40,7 +37,7 @@ body{
 }
 
 @media (max-width: 991px){
-    .artigo .imagem{
+    .artigo .image-container{
         display: none;
     }
 }
@@ -62,4 +59,23 @@ body{
 
     font-size: 22px;
     color: white;
+}
+
+.imagem{
+    display: block;
+    left: calc(50% - 200px);
+    position: absolute;
+    top: calc(50% - 155px);
+
+    width: 400px;
+    height: 310px;
+}
+
+.rodape{
+    background-color: #091B31;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    color: white;
+    font-size: 18px;
 }

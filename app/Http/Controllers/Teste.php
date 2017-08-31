@@ -18,6 +18,6 @@ class Teste extends Controller
         $user = User::find(Auth::id());
         //$area_atendimento = AreaAtendimento::find(rand(1,5));
         
-        return $user->getAreasAtendimento()->attach(rand(1,5));
+        return $user->getAreasAtendimento()->attach(4);
     }
 }

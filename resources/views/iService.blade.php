@@ -23,19 +23,19 @@
         </div>
       </div>
 
-      <div class="col-md-5 imagem text-centeral">
-          <img class="" src="{{ asset('images/laptopPlay.png') }}" alt="iService">
+      <div class="col-md-5 image-container">
+          <img class="imagem" src="{{ asset('images/laptopPlay.png') }}" alt="iService">
       </div>
   </article>
 
   <hr>
 
   <article class="artigo row">
-      <div class="col-md-5 imagem text-center">
-          <img class="" src="{{ asset('images/laptopPlay.png') }}" alt="iService">
+      <div class="col-md-5 col-md-offset-1 image-container">
+          <img class="imagem" src="{{ asset('images/screenStat.png') }}" alt="iService">
       </div>
 
-      <div class="escrito col-md-5 col-md-offset-1">
+      <div class="escrito col-md-5">
         <div class="titulo">
           <h2>Um sistema que busca o máximo desempenho para sua empresa.</h2>
         </div>
@@ -53,7 +53,13 @@
 @endsection
 
 @section('footer')
-<footer>
-
+<footer class="rodape">
+  <div>
+    <p class="text-center">Trabalho de conclusão de curso - <a href="http://paguii.com.br">Guilherme Pagliarini</a></p>
+    <p class="text-center">
+      <i class="glyphicon glyphicon-console"></i>
+      <a href="https://www.github.com/paguii/service-adm">iService Github</a>
+    </p>
+  </div>
 </footer>
 @endsection
