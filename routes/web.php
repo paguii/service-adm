@@ -19,7 +19,7 @@ Route::get('/', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/atendimento/{id}', 'AtendimentoController@index');
+Route::get('/atendimento/{id}', 'AtendimentoController@index')->name('filaAtendimento');
 
 Route::get('/teste', 'Teste@teste');
 

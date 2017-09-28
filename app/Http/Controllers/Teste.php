@@ -16,8 +16,6 @@ class Teste extends Controller
     public function teste()
     {
         $user = User::find(Auth::id());
-        //$area_atendimento = AreaAtendimento::find(rand(1,5));
-        
-        return $user->getAreasAtendimento()->attach(4);
+        return view('chamados/novoChamado');
     }
 }

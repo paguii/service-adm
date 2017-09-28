@@ -10,10 +10,12 @@ class AtendimentoController extends Controller
 
     public function __construct(){
         //Necessita Autenticação
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     public function index($id){
-        return $id;
+        
+
+        return view('listaChamados', ['id' => $id]);
     }
 }

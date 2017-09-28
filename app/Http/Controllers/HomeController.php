@@ -30,11 +30,9 @@ class HomeController extends Controller
         $user = $user->find(Auth::id());
 
         $areasAtendimento = array();
-        $i = 0;
 
         foreach($user->getAreasAtendimento as $areaAtendimento){
-            $areasAtendimento[$i] = $areaAtendimento->nome;
-            $i++;
+            $areasAtendimento[$areaAtendimento->id] = $areaAtendimento->nome;
         }
 
         return view('home', ['areasAtendimento' => $areasAtendimento]);

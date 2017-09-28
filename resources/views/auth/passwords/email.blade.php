@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Redefinir Senha')
+
 @section('content')
 <div class="container">
     <div class="row">
