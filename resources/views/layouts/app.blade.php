@@ -14,6 +14,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/iService.css') }}" rel="stylesheet">
     <link href="{{ asset('bower_resources/normalize-css/normalize.css') }}" rel="stylesheet">
+    
+    <!-- Scripts  -->
+    <script src="{{ asset('bower_resources/jquery/dist/jquery.min.js') }}"></script>
 </head>
 <body class="@yield('bodyClass')">
     <div id="app">
