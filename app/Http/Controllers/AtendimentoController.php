@@ -22,9 +22,11 @@ class AtendimentoController extends Controller
 
     public function index($idFilaAtendimento){
         $chamado = new Chamado;
-        
-        $listaChamadosAguardandoAtendimento = $chamado->join('historicos_chamados', 'chamados.id', '=', 'historicos_chamados.chamado_id')->join('solicitantes', 'chamados.solicitante_id', '=', 'solicitantes.id')->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)->where('historicos_chamados.situacao_id', '=', 1)->select('chamados.id', 'solicitantes.nome', 'historicos_chamados.observacao' )->get();
-        $listaChamadosPendentes = $chamado->join('historicos_chamados', 'chamados.id', '=', 'historicos_chamados.chamado_id')->join('solicitantes', 'chamados.solicitante_id', '=', 'solicitantes.id')->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)->where('historicos_chamados.situacao_id', '<>', 1)->where('historicos_chamados.situacao_id', '<>', 4)->select('chamados.id', 'solicitantes.nome', 'historicos_chamados.observacao' )->get();
+
+        $listaChamadosPendentes = $chamado->join('historicos_chamados', 'chamados.id', '=', 'historicos_chamados.chamado_id')->join('solicitantes', 'solicitante_id', '=', 'solicitantes.id')->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)->where('chamados.situacao_id', '<>', 1)->where('chamados.situacao_id', '<>', 4)->select('chamados.id', 'solicitantes.nome', 'historicos_chamados.observacao' )->get();
+
+        $listaChamadosAguardandoAtendimento = $chamado->join('historicos_chamados', 'chamados.id', '=', 'historicos_chamados.chamado_id')->join('solicitantes', 'chamados.solicitante_id', '=', 'solicitantes.id')->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)->where('chamados.situacao_id', '=', 1)->select('chamados.id', 'solicitantes.nome', 'historicos_chamados.observacao' )->get();
+
 
         return view('chamados/listaChamados', ['idFilaAtendimento' => $idFilaAtendimento, 'aguardandoAtendimento' => $listaChamadosAguardandoAtendimento, 'pendentes' => $listaChamadosPendentes]);
     }
@@ -41,6 +43,7 @@ class AtendimentoController extends Controller
 
     public function criaNovoChamado(Request $request, $idFilaAtendimento){
         $chamado = new Chamado;
+        
         $numeroChamado = $chamado->inserir($request->solicitante, $request->classeProblema, $idFilaAtendimento, $request->tipoProblema, $request->descricao);
 
         return view('chamados/msgSucesso', ['tituloOperacao' => 'Criação de chamados', 'mensagem' => 'Seu chamado foi criado com sucesso por favor anote o numero do chamado '.$numeroChamado, 'filaAtendimento'=> $idFilaAtendimento]);

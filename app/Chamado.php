@@ -16,9 +16,10 @@ class Chamado extends Model
         
     	$chamado->solicitante_id = $solicitante_id;
     	$chamado->classe_problema_id = $classe_problema_id;
-    	$chamado->area_atendimento_id = $area_atendimento_id;
+        $chamado->area_atendimento_id = $area_atendimento_id;
+        $chamado->situacao_id = 1;        
         $chamado->tipo_problema_id = $tipoProblema_id;
-
+        
         $chamado->save();
         
         $historicoChamado->chamado_id = $chamado->id;

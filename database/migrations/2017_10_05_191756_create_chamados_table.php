@@ -26,7 +26,10 @@ class CreateChamadosTable extends Migration
             $table->foreign('area_atendimento_id')->references('id')->on('areas_atendimento');
 
             $table->integer('tipo_problema_id')->unsigned();
-            $table->foreign('tipo_problema_id')->references('id')->on('classes_problemas');
+            $table->foreign('tipo_problema_id')->references('id')->on('tipos_problemas');
+
+            $table->integer('situacao_id')->unsigned();
+            $table->foreign('situacao_id')->references('id')->on('situacoes');
 
             $table->timestamps();
         });
