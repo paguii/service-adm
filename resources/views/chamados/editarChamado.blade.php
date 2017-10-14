@@ -1,22 +1,28 @@
 @extends('layouts.app')
+@section('title', 'Editar Chamado '.$chamado->id)
 
-@section('title', 'Novo Chamado')
 
 @section('header')
     <header>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Novo Chamado</h2>
+                    <h2>Chamado #{{ $chamado->id }}</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Informações:</h3>
                 </div>
             </div>
         </div>
     </header>
-@endsection 
+@endsection
 
 @section('content')
 <div class="container">
-    <form action="{{route('criaNovoChamado', ['idFilaAtendimento'=> $idFilaAtendimento])}}" method="post">
+    <form action="{{route('editaChamado', ['id_fila'=> $filaAtendimento, 'id_chamado' => $chamado->id])}}" method="post">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-md-12">
@@ -26,18 +32,26 @@
                         <div class="col-md-12">
                             <div><label for="solicitante">Solicitante:</label><a href="">  Novo Solicitante</a></div>
                             <select name="solicitante" id="solicitante">
-                                <option value="" selected>-----------</option>
+                                <option value="">-----------</option>
                                 @foreach($solicitantes as $solicitante)
-                                    <option value="{{$solicitante->id}}">{{$solicitante->nome}}</option>
+                                    {{$selected = ''}}
+                                    @if($chamado->solicitante_id == $solicitante->id)
+                                        {{$selected = 'selected'}}
+                                    @endif
+                                    <option value="{{$solicitante->id}}" {{ $selected }}>{{$solicitante->nome}}</option>
                                 @endforeach
                             </select>           
                         </div>
                         <div class="col-md-6">
                             <div><label for="classeProblema">Classe do problema:</label></div>
                             <select name="classeProblema" id="classeProblema">
-                                <option value="" selected>-----------</option>
+                                <option value="">-----------</option>
                                 @foreach($classesProblema as $classeProblema)
-                                    <option value="{{$classeProblema->id}}">{{$classeProblema->nome}}</option>
+                                {{$selected = ''}}
+                                    @if($chamado->classe_problema_id == $classeProblema->id)
+                                        {{$selected = 'selected'}}
+                                    @endif
+                                    <option value="{{$classeProblema->id}}" {{$selected}}>{{$classeProblema->nome}}</option>
                                 @endforeach
                             </select>            
                         </div>
@@ -45,18 +59,14 @@
                         <div class="col-md-6">
                             <div><label for="tipoProblema">Tipo do problema:</label></div>
                             <select name="tipoProblema" id="tipoProblema">
-                                <option value="" selected>-----------</option>
+                                <option value="">-----------</option>
                             </select>
                         </div>
-                        
-                        <div class="col-md-12">
-                            <div><label for="descricao">Descrição:</label></div>
-                            <textarea class="form-control" name="descricao" id="descricao" rows="8"></textarea>
-                        </div>  
+                    
                         
                         <div class="col-md-12">
                             <br>
-                            <input class="btn btn-primary" type="submit" value="Abrir novo chamado">   
+                            <input class="btn btn-primary" type="submit" value="Editar chamado">   
                             <input class="btn btn-default" type="button" value="Voltar" onclick="window.history.back();">
                         </div>
                         
@@ -80,12 +90,15 @@
         var rota = "{{route('getTipoProblemas', ['id' => 'REPLACEME'])}}";
         rota = rota.replace("REPLACEME", "");
 
+        
         $('#classeProblema').change(function(){
             var idClasseProblema = $('#classeProblema').val();
             $.getJSON(rota + idClasseProblema, function(data){
                 createOptionsTipoProblema(data);
             });
         });
+
+        $('#classeProblema').change();
     });
 </script>
 @endsection

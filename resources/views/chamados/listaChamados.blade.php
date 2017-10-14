@@ -11,14 +11,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="pull-left">
-                        <a href="{{route('novoChamado', ['id'=> $idFilaAtendimento])}}"><span>Novo Chamado</span></a>
-                    </div>
-                    
-                    <div class="pull-right">
-                        <span>Pesquisar Chamado: <input type="number" name="consultaChamado" id="consultaChamado"></span>
-                    </div>
+                <div class="col-md-2">
+                    <a href="{{route('novoChamado', ['id_fila'=> $idFilaAtendimento])}}"><span>Novo Chamado</span></a>
+                </div>
+
+                <div class="col-md-2">
+                    <a href="" onclick="location.reload()"><span>Atualizar Lista</span></a>
+                </div>
+                
+                <div class="col-md-4 col-md-offset-4">
+                    <span>Pesquisar Chamado: <input type="number" name="consultaChamado" id="consultaChamado"></span>
                 </div>
             </div>
         </div>
@@ -40,14 +42,20 @@
                             </tr>
                             @forelse($aguardandoAtendimento as $chamado)
                                 <tr>
-                                    <td>{{$chamado->id}}</td>
-                                    <td>
+                                    <td class="col-md-1">
+                                        <a href="{{ route('consultaChamado', ['id_fila' => $idFilaAtendimento, 'id_chamado' => $chamado->id]) }}">{{$chamado->id}}</a>
+                                    </td>
+
+                                    <td class="col-md-10">
                                         <h4>{{$chamado->nome}}</h4>
                                         <div>
                                             {{substr($chamado->observacao, 0, 130)."..."}}
-                                        </div>                                        
+                                        </div>                             
                                     </td>
-                                    <td>8 horas</td>
+
+                                    <td class="col-md-1">                                        
+                                        8 horas                                            
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -76,14 +84,14 @@
                             </tr>
                             @forelse($pendentes as $chamado)
                                 <tr>
-                                    <td>{{$chamado->id}}</td>
-                                    <td>
+                                    <td class="col-md-1"><a href="{{ route('consultaChamado', ['id_fila' => $idFilaAtendimento, 'id_chamado' => $chamado->id]) }}">{{$chamado->id}}</a></td>
+                                    <td class="col-md-10">
                                         <h4>{{$chamado->nome}}</h4>
                                         <div>
                                             {{substr($chamado->observacao, 0, 130)."..."}}
                                         </div>                                        
                                     </td>
-                                    <td>8 horas</td>
+                                    <td class="col-md-1">8 horas</td>
                                 </tr>
                             @empty
                                 <tr>

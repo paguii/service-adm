@@ -89,5 +89,28 @@ body{
     font-weight: bold;
 }
 
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+} 
 
+.bg-info {
+    background-color: #5bc0de;
+}
 
+.bg-primary{
+    background-color: #0275d8;
+}
+
+.bg-sucess{
+    background-color: #5cb85c;
+}
+
+.bg-warning{
+    background-color: #f0ad4e;
+}

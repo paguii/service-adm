@@ -8,6 +8,6 @@
         <div>
             <p>{{$mensagem}}</p>
         </div>
-        <a href="{{ route('filaAtendimento', ['filaAtendimento' => $filaAtendimento ])}}">Voltar</a>
+        <a href="{{ route('listaClassesProblema') }}">Voltar</a>
     </div>
 @endsection

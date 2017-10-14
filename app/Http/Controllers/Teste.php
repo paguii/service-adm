@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use iService\Solicitante;
 
 use iService\User;
+use iService\Chamado;
 use iService\AreaAtendimento;
 use Illuminate\Support\Facades\Auth;
+use iService\ClasseProblema;
 
 class Teste extends Controller
 {
@@ -15,7 +17,6 @@ class Teste extends Controller
 
     public function teste()
     {
-        $user = User::find(Auth::id());
-        return view('chamados/novoChamado');
+        return view('problemas/cadastrarClasseProblema');
     }
 }

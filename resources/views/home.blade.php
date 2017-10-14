@@ -2,13 +2,24 @@
 
 @section('title', 'Areas de Atendimento')
 
-@section('content')
+@section('header')
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Fila de Atendimento</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+@endsection
 
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Areas de atendimento que você pertence</div>
+                <div class="panel-heading">Filas de atendimento que você pertence</div>
 
                 <div class="panel-body">
                         @forelse($areasAtendimento as $id => $areaAtendimento)

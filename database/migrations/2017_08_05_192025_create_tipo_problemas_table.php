@@ -19,6 +19,9 @@ class CreateTipoProblemasTable extends Migration
             $table->integer('classe_problema_id')->unsigned();
             $table->foreign('classe_problema_id')->references('id')->on('classes_problemas');
 
+            $table->integer('sla_id')->unsigned();
+            $table->foreign('sla_id')->references('id')->on('SLA');
+
             $table->string('nome');
             $table->text('descricao');
             
