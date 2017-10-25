@@ -31,6 +31,8 @@ class CreateChamadosTable extends Migration
             $table->integer('situacao_id')->unsigned();
             $table->foreign('situacao_id')->references('id')->on('situacoes');
 
+            $table->text('descricao');
+
             $table->timestamps();
         });
     }

@@ -17,6 +17,8 @@
     
     <!-- Scripts  -->
     <script src="{{ asset('bower_resources/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </head>
 <body class="@yield('bodyClass')">
     <div id="app">
@@ -72,6 +74,20 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    &equiv;<span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{route('listarSLA')}}">SLA</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('listaClassesProblema')}}">Problemas</a>
+                                    </li>
+                                </ul>
+                            </li>
                         @endif
                     </ul>
                 </div>
@@ -82,7 +98,6 @@
         @yield('footer')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>

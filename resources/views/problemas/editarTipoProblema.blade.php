@@ -29,8 +29,8 @@
                                 <label for="nome">Nome:</label>
                                 <input class="form-control" type="text" name="nome" id="nome" placeholder="Digite o nome..." value="{{$tipoProblema->nome}}">
                             </div>
-                            <div class="col-md-4">
-                                <label for="sla">SLA:</label>
+                            <div class="col-md-8">
+                                <div><label for="sla">SLA:</label></div>
                                 <select name="sla" id="sla">
                                     <option value="">----------</option>
                                     @foreach($listaSLA as $sla)

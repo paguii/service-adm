@@ -24,11 +24,41 @@ class AtendimentoController extends Controller
     public function index($idFilaAtendimento){
         $chamado = new Chamado;
 
-        $listaChamadosPendentes = $chamado->join('historicos_chamados', 'chamados.id', '=', 'historicos_chamados.chamado_id')->join('solicitantes', 'solicitante_id', '=', 'solicitantes.id')->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)->where('chamados.situacao_id', '<>', 1)->where('chamados.situacao_id', '<>', 4)->select('chamados.id', 'solicitantes.nome', 'historicos_chamados.observacao')->distinct()->get();
+        $listaChamadosEmAtendimento = 
+        $chamado->join('solicitantes', 'solicitante_id', '=', 'solicitantes.id')
+                ->join('tipos_problemas', 'tipos_problemas.id', '=', 'chamados.tipo_problema_id')
+                ->join('sla', 'tipos_problemas.sla_id', '=', 'sla.id')
+            
+                ->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)
+                ->where('chamados.situacao_id', '=', 2)
+                
+                
+                ->select('chamados.id', 'solicitantes.nome', 'chamados.descricao', 'sla.horas_uteis_solucao')
+                ->distinct()->get();
 
-        $listaChamadosAguardandoAtendimento = $chamado->join('historicos_chamados', 'chamados.id', '=', 'historicos_chamados.chamado_id')->join('solicitantes', 'chamados.solicitante_id', '=', 'solicitantes.id')->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)->where('chamados.situacao_id', '=', 1)->select('chamados.id', 'solicitantes.nome', 'historicos_chamados.observacao' )->distinct()->get();
+        $listaChamadosPausados = 
+            $chamado->join('solicitantes', 'solicitante_id', '=', 'solicitantes.id')
+                    ->join('tipos_problemas', 'tipos_problemas.id', '=', 'chamados.tipo_problema_id')
+                    ->join('sla', 'tipos_problemas.sla_id', '=', 'sla.id')
+                
+                    ->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)
+                    ->where('chamados.situacao_id', '=', 3)
+                    
+                    ->select('chamados.id', 'solicitantes.nome', 'chamados.descricao', 'sla.horas_uteis_solucao')
+                    ->distinct()->get();
 
-        return view('chamados/listaChamados', ['idFilaAtendimento' => $idFilaAtendimento, 'aguardandoAtendimento' => $listaChamadosAguardandoAtendimento, 'pendentes' => $listaChamadosPendentes]);
+        $listaChamadosAguardandoAtendimento = 
+            $chamado->join('solicitantes', 'chamados.solicitante_id', '=', 'solicitantes.id')
+                    ->join('tipos_problemas', 'tipos_problemas.id', '=', 'chamados.tipo_problema_id')
+                    ->join('sla', 'tipos_problemas.sla_id', '=', 'sla.id')
+
+                    ->where('chamados.area_atendimento_id', '=', $idFilaAtendimento)
+                    ->where('chamados.situacao_id', '=', 1)
+
+                    ->select('chamados.id', 'solicitantes.nome', 'chamados.descricao', 'sla.horas_uteis_solucao')
+                    ->distinct()->get();
+
+        return view('chamados/listaChamados', ['idFilaAtendimento' => $idFilaAtendimento, 'aguardandoAtendimento' => $listaChamadosAguardandoAtendimento, 'pausados' => $listaChamadosPausados, 'atendimento' => $listaChamadosEmAtendimento]);
     }
 
     public function novoChamadoIndex($idFilaAtendimento){

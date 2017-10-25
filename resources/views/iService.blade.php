@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Teste')
+@section('title', 'Início')
 
 @section('header')
 <header class="banner">
@@ -28,8 +28,6 @@
       </div>
   </article>
 
-  <hr>
-
   <article class="artigo row">
       <div class="col-md-5 col-md-offset-1 image-container">
           <img class="imagem" src="{{ asset('images/screenStat.png') }}" alt="iService">
@@ -46,7 +44,7 @@
       </div>
   </article>
 
-  <hr>
+
 
 
 </div>
