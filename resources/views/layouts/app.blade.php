@@ -59,7 +59,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('home') }}">Filas de Atendimento</a>
+                                        <a href="{{ route('home') }}">Minhas filas de atendimento</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -81,10 +81,16 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{route('listarAreaAtendimento')}}">Filas Atendimento</a>
+                                    </li>
+                                    <li>
                                         <a href="{{route('listarSLA')}}">SLA</a>
                                     </li>
                                     <li>
                                         <a href="{{route('listaClassesProblema')}}">Problemas</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('listarRelatorios')}}">Relatórios</a>
                                     </li>
                                 </ul>
                             </li>

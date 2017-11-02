@@ -13,22 +13,30 @@
 
 Route::get('/', function(){
     return view('iService');
-    //return redirect('/login');
 });
 
 Auth::routes();
 
 //Atendimento
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'AtendimentoController@index')->name('home');
+
+Route::get('/atendimento', 'AtendimentoController@listarAreasAtendimentoIndex')->name('listarAreaAtendimento');
+Route::get('/atendimento/cadastrar', 'AtendimentoController@cadastrarAreaAtendimentoIndex')->name('cadastrarAreaAtendimento');
+Route::post('/atendimento/cadastrar', 'AtendimentoController@cadastrarAreaAtendimento')->name('cadastraAreaAtendimento');
+Route::get('/atendimento/editar/{id}', 'AtendimentoController@editarAreaAtendimentoIndex')->name('editarAreaAtendimento');
+Route::post('/atendimento/editar/{id}', 'AtendimentoController@editarAreaAtendimento')->name('editaAreaAtendimento');
+Route::get('/atendimento/area/{id}/adicionar/usuario', 'AtendimentoController@incluirUsuarioAreaAtendimentoIndex')->name('incluirUsuarioAreaAtendimento');
+Route::post('/atendimento/area/{id}/adicionar/usuario', 'AtendimentoController@incluirUsuarioAreaAtendimento')->name('incluiUsuarioAreaAtendimento');
+
 //Chamados
-Route::get('/atendimento/{id_fila}', 'AtendimentoController@index')->name('filaAtendimento');
-Route::get('/atendimento/{id_fila}/chamado/novo/', 'AtendimentoController@novoChamadoIndex')->name('novoChamado');
-Route::post('/atendimento/{id_fila}/chamado/novo/create', 'AtendimentoController@criaNovoChamado')->name('criaNovoChamado');
-Route::get('/atendimento/{id_fila}/chamado/{id_chamado}', 'AtendimentoController@consultarChamadoIndex')->name('consultaChamado');
-Route::get('/atendimento/{id_fila}/chamado/{id_chamado}/editar/', 'AtendimentoController@editarChamadoIndex')->name('editarChamado');
-Route::post('/atendimento/{id_fila}/chamado/{id_chamado}/editar/', 'AtendimentoController@editarChamado')->name('editaChamado');
-Route::get('/atendimento/{id_fila}/chamado/{id_chamado}/situacao/', 'AtendimentoController@alterarSituacaoIndex')->name('alterarSituacao');
-Route::post('/atendimento/{id_fila}/chamado/{id_chamado}/situacao/', 'AtendimentoController@alterarSituacao')->name('alteraSituacao');
+Route::get('/atendimento/{id_fila}', 'ChamadoController@index')->name('filaAtendimento');
+Route::get('/atendimento/{id_fila}/chamado/novo/', 'ChamadoController@novoChamadoIndex')->name('novoChamado');
+Route::post('/atendimento/{id_fila}/chamado/novo/create', 'ChamadoController@criaNovoChamado')->name('criaNovoChamado');
+Route::get('/atendimento/{id_fila}/chamado/{id_chamado}', 'ChamadoController@consultarChamadoIndex')->name('consultaChamado');
+Route::get('/atendimento/{id_fila}/chamado/{id_chamado}/editar/', 'ChamadoController@editarChamadoIndex')->name('editarChamado');
+Route::post('/atendimento/{id_fila}/chamado/{id_chamado}/editar/', 'ChamadoController@editarChamado')->name('editaChamado');
+Route::get('/atendimento/{id_fila}/chamado/{id_chamado}/situacao/', 'ChamadoController@alterarSituacaoIndex')->name('alterarSituacao');
+Route::post('/atendimento/{id_fila}/chamado/{id_chamado}/situacao/', 'ChamadoController@alterarSituacao')->name('alteraSituacao');
 
 
 //Problemas
@@ -51,6 +59,9 @@ Route::post('/sla/novo', 'SLAController@inserirSLA')->name('inserirSLA');
 Route::get('/sla/{id_sla}/editar', 'SLAController@editarSLAIndex')->name('editarSLA');
 Route::post('/sla/{id_sla}/editar', 'SLAController@editarSLA')->name('editaSLA');
 Route::get('/sla/{id_sla}', 'SLAController@consultarSLA')->name('consultaSLA');
+
+//Relatorios
+Route::get('/relatorios', 'RelatorioController@relatorioIndex')->name('listarRelatorios');
 
 //Teste
 Route::get('/teste', 'Teste@teste');

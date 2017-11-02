@@ -10,12 +10,6 @@
                     <h2>Problemas Conhecidos</h2>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Informações:</h3>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-3">

@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function getAreasAtendimento()
     {
-       return $this->belongsToMany('iService\AreaAtendimento', 'users_areas_atendimento')->distinct('user_id');
+       return $this->belongsToMany('iService\AreaAtendimento', 'users_areas_atendimento')->where('areas_atendimento.situacao', '=', 1)->distinct('user_id');
     }
     
 }

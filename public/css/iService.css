@@ -114,3 +114,17 @@ hr {
 .bg-warning{
     background-color: #f0ad4e;
 }
+
+.relatorio{
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+    background-color: #0275d8;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 3px;
+}
+
+.relatorio a{
+    color: white;
+}
