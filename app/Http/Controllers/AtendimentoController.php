@@ -56,12 +56,12 @@ class AtendimentoController extends Controller{
     public function editarAreaAtendimento(Request $request, $idAreaAtendimento){
         $areaAtendimento = new AreaAtendimento;
         $areaAtendimento->editar($idAreaAtendimento, $request->nomeFila, $request->descricao, $request->situacao);
-        return view('atendimento/msgSucesso', ['tituloOperacao' => 'Editar fila de atendimento', 'mensagem' => 'A fila '.$id.' foi editada com sucesso!']);
+        return view('atendimento/msgSucesso', ['tituloOperacao' => 'Editar fila de atendimento', 'mensagem' => 'A fila '.$idAreaAtendimento.' foi editada com sucesso!']);
     }
     
     public function incluirUsuarioAreaAtendimentoIndex($idAreaAtendimento){
         $usuarios = new User;
-        $usuarios = $usuarios->join('users_areas_atendimento', 'users_areas_atendimento.user_id', '=', 'users.id')->where('situacao', '=', 1)->get();
+        $usuarios = $usuarios->where('situacao', '=', 1)->get();
 
         $areaAtedimento = new AreaAtendimento;
         $areaAtedimento = $areaAtedimento->find($idAreaAtendimento);
@@ -70,6 +70,9 @@ class AtendimentoController extends Controller{
     }
 
     public function incluirUsuarioAreaAtendimento($idAreaAtendimento, Request $request){
-        
+        $areaAtedimento = new AreaAtendimento;
+        $user = $areaAtedimento->incluirUsuarioAreaAtendimento($request->usuario, $idAreaAtendimento);
+
+        return view('atendimento/msgSucesso', ['tituloOperacao' => 'Incluir usuário a fila de atendimento', 'mensagem' => 'O usuário '.$user.' agora pode gerenciar a fila de atendimento '.$idAreaAtendimento]);
     }
 }

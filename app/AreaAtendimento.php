@@ -3,6 +3,7 @@
 namespace iService;
 
 use Illuminate\Database\Eloquent\Model;
+use iService\User;
 
 class AreaAtendimento extends Model
 {
@@ -38,6 +39,17 @@ class AreaAtendimento extends Model
 	
 	public function getUsers(){
 		return $this->belongsToMany('iService\User', 'users_areas_atendimento');
+	}
+
+	public function incluirUsuarioAreaAtendimento($user_id, $idAreaAtendimento){
+		$user = new User;
+		$user = $user->find($user_id);
+
+		$areaAtendimento = new AreaAtendimento;
+		$areaAtendimento = $areaAtendimento->find($idAreaAtendimento);
+
+		$areaAtendimento->getUsers()->attach($user->id);
+		return $user->name;
 	}
 	
 }
