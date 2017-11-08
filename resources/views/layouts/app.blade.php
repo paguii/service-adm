@@ -87,7 +87,7 @@
                                         <a href="{{route('listaClassesProblema')}}">Problemas Conhecidos</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('register')}}">Usuários</a>
+                                        <a href="{{route('register')}}">Registrar Usuário</a>
                                     </li>
                                     <li>
                                         <a href="{{route('listarSolicitantes')}}">Solicitantes</a>
