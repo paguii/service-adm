@@ -84,14 +84,22 @@
                                         <a href="{{route('listarAreaAtendimento')}}">Filas Atendimento</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('listarSLA')}}">SLA</a>
+                                        <a href="{{route('listaClassesProblema')}}">Problemas Conhecidos</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('listaClassesProblema')}}">Problemas</a>
+                                        <a href="{{route('register')}}">Usuários</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('listarSolicitantes')}}">Solicitantes</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('listarSLA')}}">SLA</a>
                                     </li>
                                     <li>
                                         <a href="{{route('listarRelatorios')}}">Relatórios</a>
                                     </li>
+
+                                    
                                 </ul>
                             </li>
                         @endif

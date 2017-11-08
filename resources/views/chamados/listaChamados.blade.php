@@ -20,7 +20,7 @@
                 </div>
                 
                 <div class="col-md-4 col-md-offset-4">
-                    <span>Pesquisar Chamado: <input type="number" name="consultaChamado" id="consultaChamado"><i class="glyphicon glyphicon-search"></i></span>
+                    <span>Pesquisar Chamado: <input type="number" name="consultaChamado" id="consultaChamado"></span>
                 </div>
             </div>
         </div>
