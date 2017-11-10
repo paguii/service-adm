@@ -24,7 +24,7 @@
                     <div class="panel-heading">Detalhes</div>
                     <div class="panel-body">
                         <div class="col-md-12">
-                            <div><label for="solicitante">Solicitante:</label><a href="">  Novo Solicitante</a></div>
+                            <div><label for="solicitante">Solicitante:</label><a href="{{ route('novoSolicitante') }}">  Novo Solicitante</a></div>
                             <select name="solicitante" id="solicitante">
                                 <option value="" selected>-----------</option>
                                 @foreach($solicitantes as $solicitante)
