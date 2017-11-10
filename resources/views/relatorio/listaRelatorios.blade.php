@@ -35,7 +35,7 @@
 
                         <div class="col-md-4">
                             <div class="text-center relatorio">
-                                <a href="">Relatório de atendimento por classes de problemas</a>
+                                <a href="{{route('relatorioClasseProblema')}}">Relatório de atendimento por classes de problemas</a>
                             </div>
                         </div>
                     </div>

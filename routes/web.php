@@ -94,7 +94,7 @@ Route::post('/relatorios/tecnico', 'RelatorioController@relatorioTecnico')->name
 Route::get('/relatorios/problema/tipo', 'RelatorioController@relatorioTipoProblemaIndex')->name('relatorioTipoProblema');
 Route::post('/relatorios/problema/tipo', 'RelatorioController@relatorioTipoProblema')->name('emiteRelatorioTipoProblema');
 
-Route::get('/relatorios/problema/classe', 'RelatorioController@relatorioClasseProblema')->name('relatorioClasseProblema');
+Route::get('/relatorios/problema/classe', 'RelatorioController@relatorioClasseProblemaIndex')->name('relatorioClasseProblema');
 Route::post('/relatorios/problema/classe', 'RelatorioController@relatorioClasseProblema')->name('emiteRelatorioClasseProblema');
 
 //Teste

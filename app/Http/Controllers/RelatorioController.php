@@ -106,4 +106,46 @@ class RelatorioController extends Controller
         
         return view('relatorio/relatorioTipoProblemaResult', ['tipoProblemas' => $chamados]);
     }
+
+    public function relatorioClasseProblemaIndex(){
+        $classesProblemas = new ClasseProblema;
+        $classesProblemas = $classesProblemas->all();
+
+        return view('relatorio/relatorioClasseProblema', ['classesProblemas' => $classesProblemas] );
+    }
+
+    public function relatorioClasseProblema(Request $request){        
+        if($request->classeProblema == "Todos"){
+            $chamados = new Chamado;
+
+            $dataInicial = implode("-",array_reverse(explode("/",$request->dataInicial)));
+            $dataFinal = implode("-",array_reverse(explode("/",$request->dataFinal)));
+
+            $chamados = $chamados->join('classes_problemas', 'classes_problemas.id', '=', 'chamados.classe_problema_id')
+            ->where([
+                ['chamados.created_at', '>=', $dataInicial] ,
+                ['chamados.created_at', '<=', $dataFinal],  
+                ['chamados.situacao_id', '=', 4],
+            ])
+            ->groupBy('classes_problemas.nome')->select('classes_problemas.nome as nome', DB::raw('count(*) as total'))->get();
+
+        }else{
+            $chamados = new Chamado;
+
+            $dataInicial = implode("-",array_reverse(explode("/",$request->dataInicial)));
+            $dataFinal = implode("-",array_reverse(explode("/",$request->dataFinal)));
+
+            $chamados = $chamados->join('classes_problemas', 'classes_problemas.id', '=', 'chamados.classe_problema_id')
+            ->where([
+                ['chamados.created_at', '>=', $dataInicial] ,
+                ['chamados.created_at', '<=', $dataFinal],  
+                ['chamados.situacao_id', '=', 4],
+                ['chamados.classe_problema_id', '=', $request->classeProblema],
+            ])
+            ->groupBy('classes_problemas.nome')->select('classes_problemas.nome as nome', DB::raw('count(*) as total'))->get();
+
+        }
+        
+        return view('relatorio/relatorioClasseProblemaResult', ['classesProblemas' => $chamados]);
+    }
 }

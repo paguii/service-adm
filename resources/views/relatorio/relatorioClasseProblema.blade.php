@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Relatórios Técnico')
+@section('title', 'Relatório Classe Problema')
 
 
 @section('header')
@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Relatório - Relatório de chamados finalizados por tipo de problema</h2>
+                    <h2>Relatório -  Chamados finalizados por Classe de Problema</h2>
                 </div>
             </div>
         </div>
@@ -21,14 +21,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Informações:</div>
                     <div class="panel-body">
-                        <form action="{{route('emiteRelatorioTipoProblema')}}" method="post">
+                        <form action="{{route('emiteRelatorioClasseProblema')}}" method="post">
                             {{ csrf_field() }}
                             <div class="col-md-12">
-                                <div><label for="tipoProblema">Tipo Problema:</label></div>
-                                <select name="tipoProblema" id="tipoProblema">
+                                <div><label for="classeProblema">Classe Problema:</label></div>
+                                <select name="classeProblema" id="classeProblema">
                                     <option value="Todos">Todos</option>
-                                    @foreach($tiposProblemas as $tiposProblema)
-                                        <option value="{{$tiposProblema->id}}">{{$tiposProblema->nome}}</option>
+                                    @foreach($classesProblemas as $classeProblema)
+                                        <option value="{{$classeProblema->id}}">{{$classeProblema->nome}}</option>
                                     @endforeach
                                 </select>    
                             </div>
