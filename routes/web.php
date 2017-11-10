@@ -84,9 +84,18 @@ Route::get('/solicitante/{id_solicitante}/editar', 'SolicitantesController@edita
 Route::post('/solicitante/{id_solicitante}/editar', 'SolicitantesController@editarSolicitante')->name('editaSolicitante');
 
 Route::get('/solicitante/{id_solicitante}', 'SolicitantesController@consultarSolicitante')->name('consultaSolicitante');
+
 //Relatorios
 Route::get('/relatorios', 'RelatorioController@relatorioIndex')->name('listarRelatorios');
 
+Route::get('/relatorios/tecnico', 'RelatorioController@relatorioTecnicoIndex')->name('relatorioTecnico');
+Route::post('/relatorios/tecnico', 'RelatorioController@relatorioTecnico')->name('emiteRelatorioTecnico');
+
+Route::get('/relatorios/problema/tipo', 'RelatorioController@relatorioTipoProblemaIndex')->name('relatorioTipoProblema');
+Route::post('/relatorios/problema/tipo', 'RelatorioController@relatorioTipoProblema')->name('emiteRelatorioTipoProblema');
+
+Route::get('/relatorios/problema/classe', 'RelatorioController@relatorioClasseProblema')->name('relatorioClasseProblema');
+Route::post('/relatorios/problema/classe', 'RelatorioController@relatorioClasseProblema')->name('emiteRelatorioClasseProblema');
+
 //Teste
 Route::get('/teste', 'Teste@teste');
-

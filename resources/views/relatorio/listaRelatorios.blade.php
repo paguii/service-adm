@@ -23,13 +23,13 @@
                     <div class="panel-body">
                         <div class="col-md-4">
                             <div class="text-center relatorio">
-                                <a href="">Relatório de atendimento por técnico</a>
+                                <a href="{{route('relatorioTecnico')}}">Relatório de atendimento por técnico</a>
                             </div>
                         </div>
                         
                         <div class="col-md-4">
                             <div class="text-center relatorio">
-                                <a href="">Relatório de atendimentos por tipo de problema</a>
+                                <a href="{{route('relatorioTipoProblema')}}">Relatório de atendimentos por tipo de problema</a>
                             </div>
                         </div>
 

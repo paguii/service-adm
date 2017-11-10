@@ -17,6 +17,6 @@ class Teste extends Controller
 
     public function teste()
     {
-        return view('problemas/cadastrarClasseProblema');
+        return view('relatorio/relatorioTecnicoResult');
     }
 }
