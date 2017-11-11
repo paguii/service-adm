@@ -11,7 +11,7 @@ class SolicitantesController extends Controller
 
     public function listarSolicitantes(){
         $solicitantes = new Solicitante;
-        $solicitantes = $solicitantes->where('situacao', '=', 1)->paginate(20);
+        $solicitantes = $solicitantes->where('situacao', '=', 1)->paginate(15);
 
         return view('solicitantes/listarSolicitantes', ['solicitantes' => $solicitantes]);
     }
@@ -24,7 +24,7 @@ class SolicitantesController extends Controller
         $solicitante = new Solicitante;
         $id = $solicitante->inserirSolicitante($request->nome, $request->cpf, $request->endereco, $request->email, $request->observacao);
 
-        return view('msgSucesso', ['tituloOperecao' => 'Cadastro de Solicitante', 'mensagem' => 'O solicitante de número '.$id.' foi registrado com sucesso!']);
+        return view('solicitantes/msgSucesso', ['tituloOperacao' => 'Cadastro de Solicitante', 'mensagem' => 'O solicitante de número '.$id.' foi registrado com sucesso!']);
     }
 
     public function editarSolicitanteIndex($idSolicitante){

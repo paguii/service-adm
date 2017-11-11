@@ -8,7 +8,7 @@ class Solicitante extends Model
 {
     // Informaçao dos solicitantes
 
-    public function inserirSolicitate($nome, $cpf, $endereco, $email, $observacao){
+    public function inserirSolicitante($nome, $cpf, $endereco, $email, $observacao){
         $solicitante = new Solicitante;
 
         $solicitante->nome = $nome;
